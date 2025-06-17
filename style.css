@@ -1,0 +1,269 @@
+/* Global Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Main Stopwatch Container */
+.stopwatch {
+  background: rgba(255, 255, 255, 0.95);
+  padding: 3vh 5vw;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  backdrop-filter: blur(10px);
+  border-radius: 44px;
+  border-style:ridge;
+  border-width: 15px;
+  border-left-color: rgb(255, 164, 85);
+  border-right-color: rgb(255, 164, 85);
+  border-bottom: none;
+  border-top: none;
+}
+
+/* Heading Styles */
+.heading h1 {
+  color: #2c3e50;
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 1.5vh;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+  letter-spacing: 1px;
+}
+
+/* Timer Container */
+.timer-container {
+  margin: 3vh 0;
+}
+
+.timer-display {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 4vh;
+}
+
+/* Individual Digit Cards */
+.digit-card {
+  background: linear-gradient(145deg, #34495e, #2c3e50);
+  color: #00ff88;
+  padding: 2vh 1vw;
+  border-radius: 12px;
+  box-shadow: 
+    inset 5px 5px 10px rgba(0, 0, 0, 0.3),
+    inset -5px -5px 10px rgba(255, 255, 255, 0.1),
+    0 5px 15px rgba(0, 0, 0, 0.2);
+  min-width: 3.5vw;
+  position: relative;
+  overflow: hidden;
+}
+
+.digit-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(45deg, transparent 30%, rgba(255, 255, 255, 0.1) 50%, transparent 70%);
+  pointer-events: none;
+}
+
+.digit-card span {
+  font-size: 3rem;
+  font-weight: bold;
+  font-family: 'Courier New', monospace;
+  text-shadow: 0 0 10px rgba(0, 255, 136, 0.5);
+  display: block;
+  transition: all 0.3s ease;
+}
+
+/* Separator Styling */
+.separator {
+  color: #2c3e50;
+  font-size: 3rem;
+  font-weight: bold;
+  margin: 0 10px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+  animation: blink 1s infinite;
+}
+
+@keyframes blink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0.3; }
+}
+
+/* Button Container */
+.button-display {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+/* Button Styles */
+button {
+  padding: 15px 30px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  min-width: 120px;
+  position: relative;
+  overflow: hidden;
+}
+
+button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s;
+}
+
+button:hover::before {
+  left: 100%;
+}
+
+/* Start Button */
+#start-btn {
+  background: linear-gradient(45deg, #27ae60, #2ecc71);
+  color: white;
+  box-shadow: 0 5px 15px rgba(46, 204, 113, 0.4);
+}
+
+#start-btn:hover {
+  background: linear-gradient(45deg, #229954, #27ae60);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(46, 204, 113, 0.6);
+}
+
+/* Pause Button */
+#pause-btn {
+  background: linear-gradient(45deg, #f39c12, #e67e22);
+  color: white;
+  box-shadow: 0 5px 15px rgba(243, 156, 18, 0.4);
+}
+
+#pause-btn:hover {
+  background: linear-gradient(45deg, #e67e22, #d35400);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(243, 156, 18, 0.6);
+}
+
+/* Reset Button */
+#reset-btn {
+  background: linear-gradient(45deg, #e74c3c, #c0392b);
+  color: white;
+  box-shadow: 0 5px 15px rgba(231, 76, 60, 0.4);
+}
+
+#reset-btn:hover {
+  background: linear-gradient(45deg, #c0392b, #a93226);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(231, 76, 60, 0.6);
+}
+
+/* Button Active States */
+button:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .stopwatch {
+    padding: 30px 20px;
+    margin: 20px;
+  }
+  
+  .heading h1 {
+    font-size: 2rem;
+  }
+  
+  .digit-card {
+    padding: 15px 10px;
+    min-width: 60px;
+  }
+  
+  .digit-card span {
+    font-size: 2.5rem;
+  }
+  
+  .separator {
+    font-size: 2.5rem;
+    margin: 0 5px;
+  }
+  
+  button {
+    padding: 12px 20px;
+    font-size: 1rem;
+    min-width: 100px;
+  }
+  
+  .button-display {
+    gap: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .timer-display {
+    gap: 5px;
+  }
+  
+  .digit-card {
+    padding: 12px 8px;
+    min-width: 50px;
+  }
+  
+  .digit-card span {
+    font-size: 2rem;
+  }
+  
+  .separator {
+    font-size: 2rem;
+    margin: 0 3px;
+  }
+  
+  .button-display {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+/* Hover Effects for Digit Cards */
+.digit-card:hover {
+  transform: scale(1.05);
+  box-shadow: 
+    inset 5px 5px 10px rgba(0, 0, 0, 0.3),
+    inset -5px -5px 10px rgba(255, 255, 255, 0.1),
+    0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+/* Animation for number changes */
+.digit-card span.changing {
+  animation: digitFlip 0.3s ease-in-out;
+}
+
+@keyframes digitFlip {
+  0% { transform: rotateX(0deg); }
+  50% { transform: rotateX(90deg); }
+  100% { transform: rotateX(0deg); }
+}
