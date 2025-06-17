@@ -4,11 +4,12 @@ let elapsedTime = 0;
 let timerInterval = null;
 let isRunning = false;
 
-// Dom elements -- Buttons 
+// Dom elements -- Buttons
 const startBtn = document.getElementById("start-btn");
 const pauseBtn = document.getElementById("pause-btn");
+const resetBtn = document.getElementById("reset-btn");
 
-// Dom elements of the Timer 
+// Dom elements of the Timer
 const hours_tens = document.getElementById("hours-tens");
 const hours_ones = document.getElementById("hours-ones");
 const minutes_tens = document.getElementById("minutes-tens");
@@ -31,12 +32,14 @@ function startTimer() {
     // Optional: Update button states
     startBtn.textContent = "Running";
     startBtn.disabled = true;
+    pauseBtn.textContent = "Pause";
     pauseBtn.disabled = false;
   }
 }
 
 function updateDisplay() {
   // Calculate current elapsed time
+  // date.now() returns time in ms
   const currentTime = Date.now();
   elapsedTime = currentTime - startTime;
 
@@ -63,4 +66,49 @@ function updateDisplay() {
   seconds_ones.textContent = secondsOnes;
 }
 
-startBtn.addEventListener("click",startTimer);
+startBtn.addEventListener("click", startTimer);
+
+function pauseTimer() {
+  if (isRunning === true) {
+    isRunning = false;
+    clearInterval(timerInterval);
+    // Proper button state management
+    startBtn.textContent = "Resume";
+    startBtn.disabled = false;
+    pauseBtn.textContent = "Paused";
+    pauseBtn.disabled = true;
+    // updateDisplay();
+  }
+}
+// updateDisplay();
+// this will execute immediately when the script loads
+
+pauseBtn.addEventListener("click", pauseTimer);
+
+function resetTimer() {
+  if (isRunning === true) {
+    isRunning = false;
+    clearInterval(timerInterval);
+  }
+  // Reset all time variables to zero
+  startTime = 0;
+  elapsedTime = 0;
+  timerInterval = null;
+
+  // Reset all display digits to 0
+  hours_tens.textContent = '0';
+  hours_ones.textContent = '0';
+  minutes_tens.textContent = '0';
+  minutes_ones.textContent = '0';
+  seconds_tens.textContent = '0';
+  seconds_ones.textContent = '0';
+
+  // Reset button states to initial condition
+  startBtn.textContent = "Start";
+  startBtn.disabled = false;
+  pauseBtn.textContent = "Pause";
+  pauseBtn.disabled = true;  // Disable pause until timer starts
+  resetBtn.disabled = false;
+}
+
+resetBtn.addEventListener("click",resetTimer);
