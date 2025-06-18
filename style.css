@@ -6,7 +6,7 @@
 }
 
 body {
-  font-family: 'Arial', sans-serif;
+  font-family: "Arial", sans-serif;
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   min-height: 100vh;
   display: flex;
@@ -22,7 +22,7 @@ body {
   text-align: center;
   backdrop-filter: blur(10px);
   border-radius: 44px;
-  border-style:ridge;
+  border-style: ridge;
   border-width: 15px;
   border-left-color: rgb(255, 164, 85);
   border-right-color: rgb(255, 164, 85);
@@ -59,30 +59,33 @@ body {
   color: #00ff88;
   padding: 2vh 1vw;
   border-radius: 12px;
-  box-shadow: 
-    inset 5px 5px 10px rgba(0, 0, 0, 0.3),
-    inset -5px -5px 10px rgba(255, 255, 255, 0.1),
-    0 5px 15px rgba(0, 0, 0, 0.2);
+  box-shadow: inset 5px 5px 10px rgba(0, 0, 0, 0.3),
+    inset -5px -5px 10px rgba(255, 255, 255, 0.1), 0 5px 15px rgba(0, 0, 0, 0.2);
   min-width: 3.5vw;
   position: relative;
   overflow: hidden;
 }
 
 .digit-card::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  background: linear-gradient(45deg, transparent 30%, rgba(255, 255, 255, 0.1) 50%, transparent 70%);
+  background: linear-gradient(
+    45deg,
+    transparent 30%,
+    rgba(255, 255, 255, 0.1) 50%,
+    transparent 70%
+  );
   pointer-events: none;
 }
 
 .digit-card span {
   font-size: 3rem;
   font-weight: bold;
-  font-family: 'Courier New', monospace;
+  font-family: "Courier New", monospace;
   text-shadow: 0 0 10px rgba(0, 255, 136, 0.5);
   display: block;
   transition: all 0.3s ease;
@@ -99,8 +102,14 @@ body {
 }
 
 @keyframes blink {
-  0%, 50% { opacity: 1; }
-  51%, 100% { opacity: 0.3; }
+  0%,
+  50% {
+    opacity: 1;
+  }
+  51%,
+  100% {
+    opacity: 0.3;
+  }
 }
 
 /* Button Container */
@@ -128,13 +137,18 @@ button {
 }
 
 button::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: -100%;
   width: 100%;
   height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
   transition: left 0.5s;
 }
 
@@ -193,31 +207,31 @@ button:active {
     padding: 30px 20px;
     margin: 20px;
   }
-  
+
   .heading h1 {
     font-size: 2rem;
   }
-  
+
   .digit-card {
     padding: 15px 10px;
     min-width: 60px;
   }
-  
+
   .digit-card span {
     font-size: 2.5rem;
   }
-  
+
   .separator {
     font-size: 2.5rem;
     margin: 0 5px;
   }
-  
+
   button {
     padding: 12px 20px;
     font-size: 1rem;
     min-width: 100px;
   }
-  
+
   .button-display {
     gap: 15px;
   }
@@ -227,21 +241,21 @@ button:active {
   .timer-display {
     gap: 5px;
   }
-  
+
   .digit-card {
     padding: 12px 8px;
     min-width: 50px;
   }
-  
+
   .digit-card span {
     font-size: 2rem;
   }
-  
+
   .separator {
     font-size: 2rem;
     margin: 0 3px;
   }
-  
+
   .button-display {
     flex-direction: column;
     align-items: center;
@@ -251,10 +265,8 @@ button:active {
 /* Hover Effects for Digit Cards */
 .digit-card:hover {
   transform: scale(1.05);
-  box-shadow: 
-    inset 5px 5px 10px rgba(0, 0, 0, 0.3),
-    inset -5px -5px 10px rgba(255, 255, 255, 0.1),
-    0 8px 25px rgba(0, 0, 0, 0.3);
+  box-shadow: inset 5px 5px 10px rgba(0, 0, 0, 0.3),
+    inset -5px -5px 10px rgba(255, 255, 255, 0.1), 0 8px 25px rgba(0, 0, 0, 0.3);
 }
 
 /* Animation for number changes */
@@ -263,7 +275,13 @@ button:active {
 }
 
 @keyframes digitFlip {
-  0% { transform: rotateX(0deg); }
-  50% { transform: rotateX(90deg); }
-  100% { transform: rotateX(0deg); }
+  0% {
+    transform: rotateX(0deg);
+  }
+  50% {
+    transform: rotateX(90deg);
+  }
+  100% {
+    transform: rotateX(0deg);
+  }
 }

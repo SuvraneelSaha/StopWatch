@@ -96,19 +96,19 @@ function resetTimer() {
   timerInterval = null;
 
   // Reset all display digits to 0
-  hours_tens.textContent = '0';
-  hours_ones.textContent = '0';
-  minutes_tens.textContent = '0';
-  minutes_ones.textContent = '0';
-  seconds_tens.textContent = '0';
-  seconds_ones.textContent = '0';
+  hours_tens.textContent = "0";
+  hours_ones.textContent = "0";
+  minutes_tens.textContent = "0";
+  minutes_ones.textContent = "0";
+  seconds_tens.textContent = "0";
+  seconds_ones.textContent = "0";
 
   // Reset button states to initial condition
   startBtn.textContent = "Start";
   startBtn.disabled = false;
   pauseBtn.textContent = "Pause";
-  pauseBtn.disabled = true;  // Disable pause until timer starts
+  pauseBtn.disabled = true; // Disable pause until timer starts
   resetBtn.disabled = false;
 }
 
-resetBtn.addEventListener("click",resetTimer);
+resetBtn.addEventListener("click", resetTimer);
